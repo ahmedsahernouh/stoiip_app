@@ -40,10 +40,10 @@ ZMAP grid
 -----------------------------------------------------------------------------------------------
 
 ## Running the Application
-Install dependencies
+#### Install dependencies
 pip install -r requirements.txt
 or use Install_1st_Time.bat on Windows.
-Launch Streamlit app
+#### Launch Streamlit app
 streamlit run app.py
 or use run_app.bat on Windows.
 
