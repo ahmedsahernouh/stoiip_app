@@ -1,5 +1,5 @@
 @echo off
-REM Simple launcher for the STOIIP Streamlit app
+REM temporary place holder
 setlocal
 cd /d "%~dp0"
 echo Starting Streamlit STOIIP app...
