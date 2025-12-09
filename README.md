@@ -1,4 +1,4 @@
-# stoiip_app
+# STOIIP_Calculation_App
 STOIIP Monte-Carlo Streamlit Application
 Volumetric Estimation with Uncertainty and ZMAP Grid Integration
 
