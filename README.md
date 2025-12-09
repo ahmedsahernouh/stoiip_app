@@ -50,12 +50,18 @@ or use run_app.bat on Windows.
 -----------------------------------------------------------------------------------------------
 
 ## Repository Structure
-###### app.py                 [Main Streamlit application]
-###### requirements.txt       [Python dependencies]
-###### run_app.bat            [Windows launcher]
-###### zmap_samples/          [Example ZMAP files]
-###### notebooks/             [Monte-Carlo explanation notebook]
-###### assets/                [Architecture diagram and images]
+###### app.py                 
+Main Streamlit application
+###### requirements.txt       
+Python dependencies
+###### run_app.bat            
+Windows launcher
+###### zmap_samples/          
+Example ZMAP files
+###### notebooks/             
+Monte-Carlo explanation notebook
+###### assets/                
+Architecture diagram and images
 
 -----------------------------------------------------------------------------------------------
 ## Licensing and Acknowledgement
