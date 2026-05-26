@@ -11,6 +11,18 @@ Streamlit application for STOIIP volumetric estimation with uncertainty and opti
 
 ![Notebook Output 3](assets/screenshots/notebook-output-3.png)
 
+![PowerPoint screenshot 4](assets/screenshots/pptx-screenshot-01.png)
+
+![PowerPoint screenshot 5](assets/screenshots/pptx-screenshot-02.png)
+
+![PowerPoint screenshot 6](assets/screenshots/pptx-screenshot-03.png)
+
+![PowerPoint screenshot 7](assets/screenshots/pptx-screenshot-04.png)
+
+![PowerPoint screenshot 8](assets/screenshots/pptx-screenshot-05.png)
+
+![PowerPoint screenshot 9](assets/screenshots/pptx-screenshot-06.png)
+
 <!-- screenshots:end -->
 
 
