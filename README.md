@@ -2,6 +2,18 @@
 
 Streamlit application for STOIIP volumetric estimation with uncertainty and optional ZMAP grid inputs.
 
+## Screenshots
+
+<!-- screenshots:start -->
+![Notebook Output 1](assets/screenshots/notebook-output-1.png)
+
+![Notebook Output 2](assets/screenshots/notebook-output-2.png)
+
+![Notebook Output 3](assets/screenshots/notebook-output-3.png)
+
+<!-- screenshots:end -->
+
+
 ## Repository Status
 
 Private review draft. This repository was staged from a private working folder for review before any public publishing decision.
