@@ -5,23 +5,23 @@ Streamlit application for STOIIP volumetric estimation with uncertainty and opti
 ## Screenshots
 
 <!-- screenshots:start -->
-![Notebook Output 1 1](assets/screenshots/notebook-output-1.png)
+![Notebook output 1](assets/screenshots/notebook-output-1.png)
 
-![Notebook Output 2 2](assets/screenshots/notebook-output-2.png)
+![Notebook output 2](assets/screenshots/notebook-output-2.png)
 
-![Notebook Output 3 3](assets/screenshots/notebook-output-3.png)
+![Notebook output 3](assets/screenshots/notebook-output-3.png)
 
-![PowerPoint slide screenshot 4](assets/screenshots/slide-screenshot-01.png)
+![PowerPoint slide screenshot 1](assets/screenshots/slide-screenshot-01.png)
 
-![PowerPoint slide screenshot 5](assets/screenshots/slide-screenshot-02.png)
+![PowerPoint slide screenshot 2](assets/screenshots/slide-screenshot-02.png)
 
-![PowerPoint slide screenshot 6](assets/screenshots/slide-screenshot-03.png)
+![PowerPoint slide screenshot 3](assets/screenshots/slide-screenshot-03.png)
 
-![PowerPoint slide screenshot 7](assets/screenshots/slide-screenshot-04.png)
+![PowerPoint slide screenshot 4](assets/screenshots/slide-screenshot-04.png)
 
-![PowerPoint slide screenshot 8](assets/screenshots/slide-screenshot-05.png)
+![PowerPoint slide screenshot 5](assets/screenshots/slide-screenshot-05.png)
 
-![PowerPoint slide screenshot 9](assets/screenshots/slide-screenshot-06.png)
+![PowerPoint slide screenshot 6](assets/screenshots/slide-screenshot-06.png)
 
 <!-- screenshots:end -->
 
