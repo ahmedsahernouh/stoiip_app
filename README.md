@@ -25,10 +25,6 @@ Streamlit application for STOIIP volumetric estimation with uncertainty and opti
 
 <!-- screenshots:end -->
 
-## Repository Status
-
-Public-facing STOIIP calculator and ZMAP visualization app with curated explanatory screenshots.
-
 ## What This Demonstrates
 
 - Domain-focused analytical thinking
@@ -50,7 +46,3 @@ For Streamlit apps:
 ```bash
 streamlit run app.py
 ```
-
-## Data And Inputs
-
-This repository is prepared for public portfolio use. Inputs committed here should be synthetic, public, or otherwise approved for sharing.
