@@ -1,39 +1,22 @@
-# STOIIP Monte Carlo Streamlit App
+# STOIIP Monte Carlo Study
 
-Streamlit application for STOIIP volumetric estimation with uncertainty and optional ZMAP grid inputs.
+This repository contains a notebook-led study of STOIIP uncertainty. It samples area, thickness, porosity, oil saturation, net-to-gross and formation volume factor, then compares the deterministic estimate with the simulated distribution.
 
-## Screenshots
+The notebook also looks at which inputs drive the spread through a tornado chart, correlation plots and a porosity-uncertainty sensitivity test. The values are illustrative and use a fixed random seed so the example can be repeated.
 
-<!-- screenshots:start -->
-![Notebook output 1](assets/screenshots/notebook-output-1.png)
+## Current status
 
-![Notebook output 2](assets/screenshots/notebook-output-2.png)
+The Monte Carlo notebook is the working part of this repository. `app.py` and `run_app.bat` are placeholders for a future Streamlit interface; a functioning app is not included yet. The sample ZMAP files are retained for planned grid-input work and are not connected to the placeholder interface.
 
-![Notebook output 3](assets/screenshots/notebook-output-3.png)
+## Selected outputs
 
-![PowerPoint slide screenshot 1](assets/screenshots/slide-screenshot-01.png)
+![Simulated input distributions](assets/screenshots/notebook-output-1.png)
 
-![PowerPoint slide screenshot 2](assets/screenshots/slide-screenshot-02.png)
+![Input-to-STOIIP scatter plots](assets/screenshots/notebook-output-2.png)
 
-![PowerPoint slide screenshot 3](assets/screenshots/slide-screenshot-03.png)
+![Tornado chart of relative input influence](assets/screenshots/notebook-output-3.png)
 
-![PowerPoint slide screenshot 4](assets/screenshots/slide-screenshot-04.png)
-
-![PowerPoint slide screenshot 5](assets/screenshots/slide-screenshot-05.png)
-
-![PowerPoint slide screenshot 6](assets/screenshots/slide-screenshot-06.png)
-
-<!-- screenshots:end -->
-
-## What This Demonstrates
-
-- Domain-focused analytical thinking
-- Python/Jupyter workflow development
-- Data cleaning and transformation
-- Visualization and interpretation
-- Reproducible project packaging
-
-## Run Locally
+## Run the notebook
 
 ```bash
 python -m venv .venv
@@ -41,8 +24,4 @@ pip install -r requirements.txt
 jupyter lab
 ```
 
-For Streamlit apps:
-
-```bash
-streamlit run app.py
-```
+Open `notebooks/STOIIP_Calculation_Explained.ipynb` and run the cells in order. This is an analytical example, not a reserves estimate or a substitute for asset-specific uncertainty work.
