@@ -14,7 +14,7 @@ A Streamlit calculator for oil initially in place, uncertainty analysis and ZMAP
 
 ## Select grids
 
-Choose **Upload ZMAP grids** from **Input mode** at the top of the app. The main page shows a required structure uploader and four optional uploaders for thickness, porosity, oil saturation and net-to-gross. Omitted property grids use the sidebar scalar values; Bo is scalar. Confirm metre XY coordinates, then set the vertical convention and oil-water contact in the sidebar.
+Choose **Upload ZMAP structure grid** from **Area / structure source** to define reservoir geometry. Under **Property inputs**, select **Manual value** or **ZMAP grid** independently for thickness, porosity, oil saturation and net-to-gross. Each property set to ZMAP grid shows its own file selector and requires a file; the other properties retain their manual values. Bo is scalar. Confirm metre XY coordinates and set the vertical convention and oil-water contact above the property inputs.
 
 ## Run locally
 
