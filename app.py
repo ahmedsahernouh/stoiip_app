@@ -11,7 +11,21 @@ st.title('STOIIP Calculator')
 st.caption('Estimate oil initially in place and explore uncertainty with scalar inputs or ZMAP grids.')
 st.markdown('[SaherLabs](https://saherlabs.dev/projects) · [Source code](https://github.com/ahmedsahernouh/stoiip_app)')
 st.latex(r'\mathrm{STOIIP\ (STB)}=7758\ A_{\mathrm{acres}}\ h_{\mathrm{ft}}\ \phi\ S_o\ \mathrm{NTG}/B_o')
-mode=st.sidebar.selectbox('Area source',['Manual area','Synthetic grid example','Upload ZMAP grids'])
+mode=st.selectbox('Input mode',['Manual area','Synthetic grid example','Upload ZMAP grids'])
+uploaded=None
+property_uploads={}
+confirmed=False
+if mode=='Upload ZMAP grids':
+    st.subheader('Select ZMAP grids')
+    st.caption('Upload a structure grid to define the area. Add any property grids below; omitted properties use the scalar values in the sidebar. Bo uses a scalar value.')
+    uploaded=st.file_uploader('Structure ZMAP (required)',type=['dat','zmap','grd'],key='grid_structure')
+    columns=st.columns(2)
+    for index,(name,label) in enumerate([('thickness','Thickness (ft)'),('porosity','Porosity (fraction)'),('saturation','Oil saturation (fraction)'),('ntg','Net-to-gross (fraction)')]):
+        with columns[index%2]:
+            property_uploads[name]=st.file_uploader(label+' ZMAP (optional)',type=['dat','zmap','grd'],key='grid_'+name)
+    st.caption('All grids must share the same geometry. XY coordinates must be metres; thickness must be feet; porosity, saturation and NTG must be fractions. Uploads are processed in memory for your session.')
+    confirmed=st.checkbox('My grid XY coordinates are in metres',value=False)
+st.sidebar.header('Scalar inputs')
 area=st.sidebar.number_input('Area (acres)',min_value=1.0,max_value=2_000_000.0,value=10000.0,step=100.0,disabled=mode!='Manual area')
 base={}
 for name,label,minimum,maximum,value,step in [('thickness','Thickness (ft)',0.1,5000.0,100.0,1.0),('porosity','Porosity (fraction)',0.001,1.0,0.2,0.01),('saturation','Oil saturation (fraction)',0.001,1.0,0.7,0.01),('ntg','Net-to-gross (fraction)',0.001,1.0,0.8,0.01),('bo','Formation volume factor Bo (rb/STB)',0.1,5.0,1.2,0.05)]:
@@ -33,18 +47,12 @@ try:
         grid=Grid(1500-160*np.exp(-((xx-1950)**2+(yy-1450)**2)/900000),0.0,3900.0,0.0,2900.0)
         st.info('Synthetic example: XY and depth in metres; property values use the sidebar inputs.')
     else:
-        uploaded=st.sidebar.file_uploader('Structure ZMAP (.dat)',type=['dat','zmap','grd'])
-        confirmed=st.sidebar.checkbox('My grid XY coordinates are in metres',value=False)
-        st.caption('ZMAP grids must share the same geometry. Thickness grids use feet; porosity, saturation and NTG use fractions. Uploads are processed in memory for your session.')
-        if uploaded is None:st.info('Upload a structure grid, or choose the synthetic example to explore the app.');st.stop()
-        if not confirmed:st.info('Confirm the XY coordinate units before calculating grid area.');st.stop()
+        if uploaded is None:st.info('Select a structure ZMAP file above to calculate grid-based volumes.');st.stop()
+        if not confirmed:st.info('Confirm the XY coordinate units above before calculating grid area.');st.stop()
         grid=read_zmap(uploaded.getvalue())
-        with st.sidebar.expander('Optional property grids'):
-            st.caption('A supplied grid replaces its scalar input. Grids must align exactly with the structure grid.')
-            for name,label in [('thickness','Thickness (ft)'),('porosity','Porosity (fraction)'),('saturation','Oil saturation (fraction)'),('ntg','Net-to-gross (fraction)')]:
-                upload=st.file_uploader(label+' ZMAP',type=['dat','zmap','grd'],key='grid_'+name)
-                if upload is not None:
-                    p=read_zmap(upload.getvalue());require_aligned(grid,p);properties[name]=p.values
+        for name,upload in property_uploads.items():
+            if upload is not None:
+                p=read_zmap(upload.getvalue());require_aligned(grid,p);properties[name]=p.values
     if mode!='Manual area':
         convention=st.sidebar.selectbox('Vertical convention',['Depth (positive down)','Elevation (positive up)'])
         depth_positive_down=convention.startswith('Depth')

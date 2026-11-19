@@ -12,6 +12,10 @@ A Streamlit calculator for oil initially in place, uncertainty analysis and ZMAP
 - Map and interactive 3D views, plus CSV export of simulation samples.
 - A synthetic grid example that runs without external data.
 
+## Select grids
+
+Choose **Upload ZMAP grids** from **Input mode** at the top of the app. The main page shows a required structure uploader and four optional uploaders for thickness, porosity, oil saturation and net-to-gross. Omitted property grids use the sidebar scalar values; Bo is scalar. Confirm metre XY coordinates, then set the vertical convention and oil-water contact in the sidebar.
+
 ## Run locally
 
 ```sh
