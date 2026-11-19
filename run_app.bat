@@ -1,7 +1,3 @@
 @echo off
-REM temporary place holder
-setlocal
 cd /d "%~dp0"
-echo Starting Streamlit STOIIP app...
-streamlit run app.py
-endlocal
+streamlit run app.py --server.baseUrlPath "" --browser.serverAddress localhost --browser.serverPort 8501

@@ -1,27 +1,48 @@
-# STOIIP Monte Carlo Study
+# STOIIP Calculator
 
-This repository contains a notebook-led study of STOIIP uncertainty. It samples area, thickness, porosity, oil saturation, net-to-gross and formation volume factor, then compares the deterministic estimate with the simulated distribution.
+[Open the web app](https://api.saherlabs.dev/stoiip/)
 
-The notebook also looks at which inputs drive the spread through a tornado chart, correlation plots and a porosity-uncertainty sensitivity test. The values are illustrative and use a fixed random seed so the example can be repeated.
+A Streamlit calculator for oil initially in place, uncertainty analysis and ZMAP-based reservoir property review.
 
-## Current status
+## Features
 
-The Monte Carlo notebook is the working part of this repository. `app.py` and `run_app.bat` are placeholders for a future Streamlit interface; a functioning app is not included yet. The sample ZMAP files are retained for planned grid-input work and are not connected to the placeholder interface.
+- Scalar area, thickness, porosity, oil saturation, net-to-gross and formation volume factor.
+- Reproducible Monte Carlo distributions, cumulative percentiles and one-factor sensitivity.
+- Structure and aligned property ZMAP grids, with explicit unit and vertical-convention inputs.
+- Map and interactive 3D views, plus CSV export of simulation samples.
+- A synthetic grid example that runs without external data.
 
-## Selected outputs
+## Run locally
 
-![Simulated input distributions](assets/screenshots/notebook-output-1.png)
-
-![Input-to-STOIIP scatter plots](assets/screenshots/notebook-output-2.png)
-
-![Tornado chart of relative input influence](assets/screenshots/notebook-output-3.png)
-
-## Run the notebook
-
-```bash
+```sh
 python -m venv .venv
+# Activate the virtual environment, then:
 pip install -r requirements.txt
-jupyter lab
+streamlit run app.py --server.baseUrlPath "" --browser.serverAddress localhost --browser.serverPort 8501
 ```
 
-Open `notebooks/STOIIP_Calculation_Explained.ipynb` and run the cells in order. This is an analytical example, not a reserves estimate or a substitute for asset-specific uncertainty work.
+The checked-in Streamlit configuration also supports deployment behind an HTTPS proxy at `/stoiip/`.
+
+## Calculation model
+
+The volumetric formula uses area in acres, thickness in feet and dimensionless fractional properties. Grid XY coordinates must be metres. ZMAP node values are integrated using trapezoidal boundary weights; uploaded property grids must match the structure geometry. The node mask follows the selected depth/elevation convention and oil-water contact.
+
+Uncertainties are clipped normal distributions. Property uncertainty acts through global multipliers; contact uncertainty reintegrates the included nodal volume. Sensitivity compares one-factor standard deviations, not a statistical variance decomposition. Percentile labels explicitly use cumulative probability.
+
+Uploads are limited to 8 MiB and 100,000 nodes. Grid results are a nodal approximation whose accuracy depends on resolution and input assumptions. This is an illustrative calculation tool, not a reserves certification.
+
+## Verification
+
+```sh
+python -m unittest discover -s tests -v
+```
+
+The tests cover unit conversion, analytic volumes, grid orientation/alignment, nulls, invalid inputs, contact selection and simulation reproducibility.
+
+## Notebook study
+
+Earlier Monte Carlo analysis remains in [notebooks](notebooks/). The old notebooks refer to external inputs not included in the repository. Existing `zmap_samples` are historical study material and are not the app's synthetic example.
+
+## License
+
+GNU GPL v3; see [LICENSE](LICENSE).

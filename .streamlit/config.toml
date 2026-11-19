@@ -1,0 +1,22 @@
+[server]
+headless = true
+address = "127.0.0.1"
+port = 8501
+baseUrlPath = "stoiip"
+enableCORS = true
+enableXsrfProtection = true
+maxUploadSize = 8
+maxMessageSize = 25
+fileWatcherType = "none"
+
+[browser]
+serverAddress = "api.saherlabs.dev"
+serverPort = 443
+gatherUsageStats = false
+
+[client]
+toolbarMode = "viewer"
+showErrorDetails = "none"
+
+[theme]
+primaryColor = "#168b8b"
